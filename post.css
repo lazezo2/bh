@@ -1,0 +1,1419 @@
+/*    settings-box  */
+
+/* الصندوق العام */
+.settings-box {
+  display: none;
+  background: var(--BgBody);
+  color: var(--GradientColor);
+  border: 2px solid var(--AccentColor);
+  border-radius: var(--borderRadius);
+  width: 320px;
+  padding: 25px 20px;
+  font-family: sans-serif;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  text-align: center;
+  height: auto;
+  position: fixed;      /* تثبيت النافذة على الشاشة */
+  top: 50%;             /* منتصف الشاشة عموديًا */
+  left: 50%;            /* منتصف الشاشة أفقيًا */
+  transform: translate(-50%, -50%); /* لتوسيطها تمامًا */
+  z-index: 9999;        /* فوق كل العناصر */
+}
+
+/* زر الإغلاق */
+.close-label {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+  background: var(--AccentColor);
+  color: var(--GradientColor);
+  border-radius: var(--borderRadius);
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  /*! transition: 0.3s; */
+  border: 1px solid var(--BorderSoft);
+}
+.close-label:hover {
+  background: var(--HoverEffect);
+  transform: rotate(90deg);
+}
+
+/* المعاينة */
+.preview {
+  background: var(--bg);
+  color: var(--PostText);
+  padding: 12px;
+  border-radius: var(--borderRadius);
+  transition: all .3s ease;
+  margin: 15px 0;
+  border: 2px solid var(--AccentColor);
+}
+
+/* المجموعات */
+.option-group {
+  margin-bottom: 15px;
+}
+.option-title {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* أزرار الاختيار */
+.option-group input[type="radio"] {
+  display: none;
+}
+.option-group label {
+  background: var(--AccentColor);
+  border: 1px solid var(--BorderSoft);
+  color: var(--GradientColor);
+  padding: 6px 10px;
+  border-radius: var(--borderRadius);
+  cursor: pointer;
+  transition: .2s;
+  margin: 0 3px;
+  font-size: 14px;
+}
+.option-group input[type="radio"]:checked + label {
+  background: var(--HoverEffect);
+  transform: scale(1.1);
+}
+
+/* الأزرار */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.buttons button {
+  flex: 1;
+  margin: 0 5px;
+  border: none;
+  border-radius: var(--borderRadius);
+  padding: 8px;
+  cursor: pointer;
+  background: var(--AccentColor);
+  color: var(--GradientColor);
+  transition: .3s;
+}
+.buttons button:hover {
+  background: var(--HoverEffect);
+}
+
+/* تطبيق القيم على المعاينة */
+.chkbf:checked ~ .content .preview { transition: all .3s ease; }
+.chkbl:checked ~ .content .preview { transition: all .3s ease; }
+.chkbc:checked ~ .content .preview { transition: all .3s ease; }
+.chkbf, .chkbl, .chkbc{
+  display: none;
+}
+
+#font1:checked ~ .content .preview { font-size: 12px; }
+#font2:checked ~ .content .preview { font-size: 14px; }
+#font3:checked ~ .content .preview { font-size: 16px; }
+#font4:checked ~ .content .preview { font-size: 18px; }
+#font5:checked ~ .content .preview { font-size: 20px; }
+#font6:checked ~ .content .preview { font-size: 26px; }
+
+#line1:checked ~ .content .preview { line-height: 1; }
+#line2:checked ~ .content .preview { line-height: 1.2; }
+#line3:checked ~ .content .preview { line-height: 1.5; }
+#line4:checked ~ .content .preview { line-height: 1.8; }
+#line5:checked ~ .content .preview { line-height: 2; }
+#line6:checked ~ .content .preview { line-height: 2.6; }
+
+#style1:checked ~ .content .preview { --bg: #1A1A1A;, --PostText = #ffffff;}
+#style2:checked ~ .content .preview { --bg: #E6C200;, --PostText = #1a1a1a;}
+#style3:checked ~ .content .preview { --bg: #8b2f2f;, --PostText = #eee;}
+#style4:checked ~ .content .preview { --bg: #145c32;, --PostText = #eee;}
+#style5:checked ~ .content .preview { --bg: #2a0d3d;, --PostText = #eee;}
+#style6:checked ~ .content .preview { --bg: #2b1a0a;, --PostText = #eee;}
+
+/* apply style to blog*/
+/* اسود برتقالى*/
+:root:has(#style1:checked) {
+--BgBody:#1A1A1A;--AccentColor:#0A0A0A;--IconColor:#ffffff;--SecondaryColor:#0A0A0A;--LightColor:#2d2d30;--GradientColor:#ffffff;--HoverEffect:#FF8C00;--CardBg:#0A0A0A;--TextColor:#ffffff;--TitleColor:#ffffff;--SubTextColor:#CCCCCC;--BorderSoft:#FF8C00;--BorderSoft2:#1a1a1a;--BorderSoft3:#FF7000;--PostText:#ffffff;--PostTitle:#ffffff;--PostLink:#ADD8E6;--HeaderBg:#0A0A0A;--HeaderLink:#ffffff;--HeaderTitle:#ffffff;--HeaderBgIcon:#1a1a1a;--HeaderBtnCo:#FF8C00;--ContentText:#ffffff;--ContentIcon:#FF8C00;--Highlight:#ffffff;--ShadowColor:#ffffff;--ul-bullet-bg:#FF8C00;--ol-num-bg:#FF8C00;--blockquote-bg:#FF8C00;--post-h-bg:#FF8C00;--author-desc-border:5px solid #FF8C00;--toc-title-bg:#FF8C00;--post-h-color:#ffffff;--post-h-border-bottom:3px solid #FF7000;--post-h-border-right:10px solid #FF8C00;--post-h-shadow:0 3px 6px rgba(255,140,0,0.25);--author-box-bg:#1A1A1A;--author-box-shadow:0 3px 6px rgba(255,140,0,0.3);--author-img-border:3px solid #FF8C00;--author-name-color:#ffffff;--author-desc-color:#CCCCCC;--author-link-color:#ADD8E6;--author-link-hover:#ffffff;--toc-border:3px solid #FF8C00;--toc-title-color:#ffffff;--toc-title-border:3px solid #FF7000;--toc-hover-bg:#FF7000;--toc-list-bg:#1A1A1A;--toc-link-color:#FF8C00;--toc-link-hover:#ADD8E6;--ol-text-color:#ffffff;--ol-bg:#1A1A1A;--ol-shadow:0 3px 6px rgba(255,140,0,0.2);--ol-num-color:#ffffff;--ul-text-color:#ffffff;--ul-bg:#1A1A1A;--ul-shadow:0 3px 6px rgba(255,140,0,0.2);--ul-bullet-color:#ffffff;--blockquote-text:#ffffff;--blockquote-mark:#ffffff;--border-bottom:3px solid #FF7000;--border-right:10px solid #FF8C00;--box-shadow:0 3px 6px rgba(255,140,0,0.1);--post-bodyh:#ffffff;--toc-link-color2:#82F434;--toc-link-color3:#F7F320;.toupb svg .b{fill:#FF8C00}
+}
+/* ذهبى */
+:root:has(#style2:checked) {
+--BgBody:#FFD700;--AccentColor:#FFD700;--IconColor:#1a1a1a;--SecondaryColor:#FFD700;--LightColor:#2d2d30;--GradientColor:#1a1a1a;--HoverEffect:#FFC300;--CardBg:#FFDF33;--TextColor:#1a1a1a;--TitleColor:#000000;--SubTextColor:#333333;--BorderSoft:#E6C200;--BorderSoft2:#1a1a1a;--BorderSoft3:#E6C200;--PostText:#1a1a1a;--PostTitle:#000000;--PostLink:#0000FF;--HeaderBg:#FFDF33;--HeaderLink:#1a1a1a;--HeaderTitle:#000000;--HeaderBgIcon:#1a1a1a;--HeaderBtnCo:#FFD700;--ContentText:#1a1a1a;--ContentIcon:#FFD700;--Highlight:#000000;--ShadowColor:#000000;--post-h-bg:#E6C200;--post-h-color:#1a1a1a;--post-h-border-bottom:3px solid #E6C200;--post-h-border-right:10px solid #E6C200;--post-h-shadow:0 3px 6px rgba(230,194,0,0.3);--author-box-bg:#E6C200;--author-box-shadow:0 3px 6px rgba(0,0,0,0.25);--author-img-border:3px solid #ffffff;--author-name-color:#1a1a1a;--author-desc-border:5px solid #E6C200;--author-desc-color:#1a1a1a;--author-link-color:#0000FF;--author-link-hover:#1a1a1a;--toc-border:3px solid #E6C200;--toc-bg:#E6C200;--toc-title-color:#1a1a1a;--toc-title-bg:#E6C200;--toc-title-border:3px solid #FFD700;--toc-hover-bg:#FFC300;--toc-list-bg:#FFDF33;--toc-link-color:#1a1a1a;--toc-link-hover:#FFD700;--ol-text-color:#1a1a1a;--ol-bg:#E6C200;--ol-shadow:0 3px 6px rgba(0,0,0,0.2);--ol-num-bg:#E6C200;--ol-num-color:#1a1a1a;--ul-text-color:#1a1a1a;--ul-bg:#E6C200;--ul-shadow:0 3px 6px rgba(0,0,0,0.2);--ul-bullet-bg:#E6C200;--ul-bullet-color:#1a1a1a;--blockquote-text:#1a1a1a;--blockquote-bg:#E6C200;--blockquote-mark:#1a1a1a;--border-bottom:3px solid #E6C200;--border-right:10px solid #E6C200;--box-shadow:0 3px 6px rgba(0,0,0,0.05);--
+-bodyh:#1a1a1a;--toc-link-color2:#5E34F4;--toc-link-color3:#F72020;.toupb svg .b{fill:var(--CardBg)}
+}
+/* أحمر طوبي */
+:root:has(#style3:checked) {
+--BgBody:#3b0d0d;--AccentColor:#8b2f2f;--IconColor:#fff;--SecondaryColor:#8b2f2f;--LightColor:#2e0909;--GradientColor:#ffffff;--HoverEffect:#ff6b6b;--CardBg:#8b2f2f;--TextColor:#ffffff;--TitleColor:#ffffff;--SubTextColor:#eee;--BorderSoft:#2e0909;--BorderSoft2:#8b2f2f;--BorderSoft3:#3b0d0d;--PostText:#eee;--PostTitle:#ffffff;--PostLink:#ff6b6b;--HeaderBg:#8b2f2f;--HeaderLink:#ffffff;--HeaderTitle:#ffffff;--HeaderBgIcon:#3b0d0d;--HeaderBtnCo:#fff;--ContentText:#eee;--ContentIcon:#fff;--Highlight:#ff6b6b;--ShadowColor:#ff6b6b;--post-h-bg:#8b2f2f;--post-h-color:#eee;--post-h-border-bottom:2px solid #ff6b6b;--post-h-border-right:10px solid #ff6b6b;--post-h-shadow:0 4px 8px rgba(255, 107, 107, 0.3);--author-box-bg:#3b0d0d;--author-box-shadow:0 2px 4px rgba(0, 0, 0, 0.2);--author-img-border:3px solid #ff6b6b;--author-name-color:#ffffff;--author-desc-border:5px solid #ff6b6b;--author-desc-color:#eee;--author-link-color:#ff6b6b;--author-link-hover:#8b2f2f;--toc-border:1px solid #ff6b6b;--toc-bg:#8b2f2f;--toc-title-color:#ffffff;--toc-title-bg:#3b0d0d;--toc-title-border:1px solid #ff6b6b;--toc-hover-bg:#8b2f2f;--toc-list-bg:transparent;--toc-link-color:#ffffff;--toc-link-hover:#ff6b6b;--ol-text-color:#eee;--ol-bg:transparent;--ol-shadow:none;--ol-num-bg:#ff6b6b;--ol-num-color:#3b0d0d;--ul-text-color:#eee;--ul-bg:transparent;--ul-shadow:none;--ul-bullet-bg:#ff6b6b;--ul-bullet-color:#3b0d0d;--blockquote-text:#eee;--blockquote-bg:#8b2f2f;--blockquote-mark:#ff6b6b;--toc-link-color2:#82F434;--toc-link-color3:#F7F320;
+}
+/* أخضر غامق */
+:root:has(#style4:checked) {
+--BgBody:#0b1f14;--AccentColor:#145c32;--IconColor:#fff;--SecondaryColor:#145c32;--LightColor:#072d19;--GradientColor:#ffffff;--HoverEffect:#20c997;--CardBg:#145c32;--TextColor:#ffffff;--TitleColor:#ffffff;--SubTextColor:#eee;--BorderSoft:#072d19;--BorderSoft2:#145c32;--BorderSoft3:#0b1f14;--PostText:#eee;--PostTitle:#ffffff;--PostLink:#20c997;--HeaderBg:#145c32;--HeaderLink:#ffffff;--HeaderTitle:#ffffff;--HeaderBgIcon:#0b1f14;--HeaderBtnCo:#fff;--ContentText:#eee;--ContentIcon:#fff;--Highlight:#20c997;--ShadowColor:#20c997;--post-h-bg:#145c32;--post-h-color:#eee;--post-h-border-bottom:2px solid #20c997;--post-h-border-right:10px solid #20c997;--post-h-shadow:0 4px 8px rgba(32, 201, 151, 0.3);--author-box-bg:#0b1f14;--author-box-shadow:0 2px 4px rgba(0, 0, 0, 0.2);--author-img-border:3px solid #20c997;--author-name-color:#ffffff;--author-desc-border:5px solid #20c997;--author-desc-color:#eee;--author-link-color:#20c997;--author-link-hover:#145c32;--toc-border:1px solid #20c997;--toc-bg:#145c32;--toc-title-color:#ffffff;--toc-title-bg:#0b1f14;--toc-title-border:1px solid #20c997;--toc-hover-bg:#145c32;--toc-list-bg:transparent;--toc-link-color:#ffffff;--toc-link-hover:#20c997;--ol-text-color:#eee;--ol-bg:transparent;--ol-shadow:none;--ol-num-bg:#20c997;--ol-num-color:#0b1f14;--ul-text-color:#eee;--ul-bg:transparent;--ul-shadow:none;--ul-bullet-bg:#20c997;--ul-bullet-color:#0b1f14;--blockquote-text:#eee;--blockquote-bg:#145c32;--blockquote-mark:#20c997;--toc-link-color2:#82F434;--toc-link-color3:#F7F320;
+}
+/* بنفسجي غامق */
+:root:has(#style5:checked) {
+--BgBody:#2a0d3d;--AccentColor:#3a1554;--IconColor:#fff;--SecondaryColor:#3a1554;--LightColor:#21092d;--GradientColor:#ffffff;--HoverEffect:#c77dff;--CardBg:#3a1554;--TextColor:#ffffff;--TitleColor:#ffffff;--SubTextColor:#eee;--BorderSoft:#21092d;--BorderSoft2:#3a1554;--BorderSoft3:#2a0d3d;--PostText:#eee;--PostTitle:#ffffff;--PostLink:#c77dff;--HeaderBg:#2f0f44;--HeaderLink:#ffffff;--HeaderTitle:#ffffff;--HeaderBgIcon:#3a1554;--HeaderBtnCo:#fff;--ContentText:#eee;--ContentIcon:#fff;--Highlight:#c77dff;--ShadowColor:#c77dff;--post-h-bg:#3a1554;--post-h-color:#eee;--post-h-border-bottom:2px solid #c77dff;--post-h-border-right:10px solid #c77dff;--post-h-shadow:0 4px 8px rgba(199, 125, 255, 0.3);--author-box-bg:#2a0d3d;--author-box-shadow:0 2px 4px rgba(0, 0, 0, 0.2);--author-img-border:3px solid #c77dff;--author-name-color:#ffffff;--author-desc-border:5px solid #c77dff;--author-desc-color:#eee;--author-link-color:#c77dff;--author-link-hover:#3a1554;--toc-border:1px solid #c77dff;--toc-bg:#3a1554;--toc-title-color:#ffffff;--toc-title-bg:#2a0d3d;--toc-title-border:1px solid #c77dff;--toc-hover-bg:#3a1554;--toc-list-bg:transparent;--toc-link-color:#ffffff;--toc-link-hover:#c77dff;--ol-text-color:#eee;--ol-bg:transparent;--ol-shadow:none;--ol-num-bg:#c77dff;--ol-num-color:#2a0d3d;--ul-text-color:#eee;--ul-bg:transparent;--ul-shadow:none;--ul-bullet-bg:#c77dff;--ul-bullet-color:#2a0d3d;--blockquote-text:#eee;--blockquote-bg:#3a1554;--blockquote-mark:#c77dff;--toc-link-color2:#82F434;--toc-link-color3:#F7F320;.toupb svg .b{fill:var(--CardBg)}
+}
+/* بني غامق */
+:root:has(#style6:checked) {
+--BgBody:#2b1a0a;--AccentColor:#5a3c1e;--IconColor:#fff;--SecondaryColor:#5a3c1e;--LightColor:#1e1206;--GradientColor:#ffffff;--HoverEffect:#ffcc66;--CardBg:#5a3c1e;--TextColor:#ffffff;--TitleColor:#ffffff;--SubTextColor:#eee;--BorderSoft:#1e1206;--BorderSoft2:#5a3c1e;--BorderSoft3:#2b1a0a;--PostText:#eee;--PostTitle:#ffffff;--PostLink:#ffcc66;--HeaderBg:#5a3c1e;--HeaderLink:#ffffff;--HeaderTitle:#ffffff;--HeaderBgIcon:#2b1a0a;--HeaderBtnCo:#fff;--ContentText:#eee;--ContentIcon:#fff;--Highlight:#ffcc66;--ShadowColor:#ffcc66;--post-h-bg:#5a3c1e;--post-h-color:#eee;--post-h-border-bottom:2px solid #ffcc66;--post-h-border-right:10px solid #ffcc66;--post-h-shadow:0 4px 8px rgba(255, 204, 102, 0.3);--author-box-bg:#2b1a0a;--author-box-shadow:0 2px 4px rgba(0, 0, 0, 0.2);--author-img-border:3px solid #ffcc66;--author-name-color:#ffffff;--author-desc-border:5px solid #ffcc66;--author-desc-color:#eee;--author-link-color:#ffcc66;--author-link-hover:#5a3c1e;--toc-border:1px solid #ffcc66;--toc-bg:#5a3c1e;--toc-title-color:#ffffff;--toc-title-bg:#2b1a0a;--toc-title-border:1px solid #ffcc66;--toc-hover-bg:#5a3c1e;--toc-list-bg:transparent;--toc-link-color:#ffffff;--toc-link-hover:#ffcc66;--ol-text-color:#eee;--ol-bg:transparent;--ol-shadow:none;--ol-num-bg:#ffcc66;--ol-num-color:#2b1a0a;--ul-text-color:#eee;--ul-bg:transparent;--ul-shadow:none;--ul-bullet-bg:#ffcc66;--ul-bullet-color:#2b1a0a;--blockquote-text:#eee;--blockquote-bg:#5a3c1e;--blockquote-mark:#ffcc66;--toc-link-color2:#82F434;--toc-link-color3:#F7F320;
+}
+/* العنصر المختار */
+input.chkbf:checked ~ .content label[for="font1"],
+input.chkbf:checked ~ .content label[for="font2"],
+input.chkbf:checked ~ .content label[for="font3"],
+input.chkbf:checked ~ .content label[for="font4"],
+input.chkbf:checked ~ .content label[for="font5"],
+input.chkbf:checked ~ .content label[for="font6"] {
+  background: var(--AccentColor);
+}
+
+/* العنصر المختار فقط */
+#font1:checked ~ .content label[for="font1"],
+#font2:checked ~ .content label[for="font2"],
+#font3:checked ~ .content label[for="font3"],
+#font4:checked ~ .content label[for="font4"],
+#font5:checked ~ .content label[for="font5"],
+#font6:checked ~ .content label[for="font6"] {
+  background: linear-gradient(135deg, #2ecc71, #a8e063);
+  color: #fff;
+  transform: scale(1.15);
+}
+
+/* لنفس الفكرة مع التباعد */
+#line1:checked ~ .content label[for="line1"],
+#line2:checked ~ .content label[for="line2"],
+#line3:checked ~ .content label[for="line3"],
+#line4:checked ~ .content label[for="line4"],
+#line5:checked ~ .content label[for="line5"],
+#line6:checked ~ .content label[for="line6"] {
+  background: linear-gradient(135deg, #2ecc71, #a8e063);
+  color: #fff;
+  transform: scale(1.15);
+}
+
+/* لنفس الفكرة مع الاستايل */
+#style1:checked ~ .content label[for="style1"],
+#style2:checked ~ .content label[for="style2"],
+#style3:checked ~ .content label[for="style3"],
+#style4:checked ~ .content label[for="style4"],
+#style5:checked ~ .content label[for="style5"],
+#style6:checked ~ .content label[for="style6"] {
+  background: linear-gradient(135deg, #2ecc71, #a8e063);
+  color: #fff;
+  transform: scale(1.15);
+}
+
+
+
+/*apply font to blog*/
+:root:has(#font1:checked) {
+  .article-body{
+  font-size: 16px;
+  }
+}
+:root:has(#font2:checked) {
+  .article-body{
+  font-size: 20px;
+  }
+}
+:root:has(#font3:checked) {
+  .article-body{
+  font-size: 24px;
+  }
+  }
+:root:has(#font4:checked) {
+  .article-body{
+  font-size: 28px;
+  }
+  }
+:root:has(#font5:checked) {
+  .article-body{
+  font-size: 32px;
+  }
+  }
+:root:has(#font6:checked) {
+  .article-body{
+  font-size: 36px;
+  }
+  }
+  
+/*apply line to blog*/
+:root:has(#line1:checked) {
+  .article-body{
+  line-height: 1;
+  }
+  }
+:root:has(#line2:checked) {
+  .article-body{
+  line-height: 1.2;
+  }
+  }
+:root:has(#line3:checked) {
+  .article-body{
+  line-height: 1.5;
+  }
+}
+:root:has(#line4:checked) {
+  .article-body{
+  line-height: 1.8;
+  }
+  }
+:root:has(#line5:checked) {
+  .article-body{
+  line-height: 2;
+  }
+}
+:root:has(#line6:checked) {
+  .article-body{
+  line-height: 2.6;
+  }
+}
+
+/*      */
+
+
+#setb:checked ~ .settings-box{
+  display: flex !important;
+}
+/*    settings-box  */
+
+
+
+
+
+		
+/*  post  */		  
+  
+/* ====== البوست ====== */
+.article-post,
+.content-wrapper.article-body{
+  background:var(--CardBg,#fff);
+  /*border:1px solid var(--BorderSoft3,#eee);
+  border-radius:12px;*/
+  padding:0px!important;   /* padding داخلي */
+  /* margin:20px 0; */
+  color:var(--PostText,#333);
+  box-shadow:0 2px 6px rgba(0,0,0,0.06);
+}
+
+.content-wrapper h1,
+.content-wrapper h2,
+.content-wrapper h3{
+  color:var(--PostTitle,#111);
+  font-weight:700;
+  margin:15px 0;
+  line-height:1.4;
+}
+.content-wrapper h1{font-size:24px;}
+.content-wrapper h2{font-size:20px;}
+.content-wrapper h3{font-size:18px;}
+
+/* ====== الميتا ====== */
+.post-meta{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:14px;
+  color:var(--SubTextColor,#777);
+  margin:12px 0 20px;
+}
+		
+		
+		
+		
+		/*   .content-wrapper style h1 h2... */
+
+.content-wrapper ol:not(.toc-box ol) li,
+.toctitle {
+    align-items: center;
+    display: flex;
+}
+
+.content-wrapper ol:not(.toc-box ol) li,
+.content-wrapper ul:not(.toc-box ul) li {
+    list-style: none;
+    font-size: 17px;
+    border-radius: 5px;
+}
+
+
+
+/*   the above conflict with new table of content    */
+
+
+.topcs7v.open #tocList,
+div#tocDiv {
+    display: block;
+}
+#tocList li,
+.authorImage {
+    margin-bottom: 10px;
+}
+.content-wrapper h2:not(.post-title):not(.areacode),
+.content-wrapper h3:not(.post-title):not(.areacode),
+.content-wrapper h4:not(.post-title):not(.areacode) {
+    background-color: var(--post-h-bg);
+    color: var(--post-h-color);
+    padding: 11px 20px;
+    margin: 20px 0 30px;
+    border-bottom: var(--post-h-border-bottom);
+    border-right: var(--post-h-border-right);
+    box-shadow: var(--post-h-shadow);
+    border-radius: 5px;
+}
+
+
+
+
+
+.author-posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: var(--author-box-bg);
+    box-shadow: var(--author-box-shadow);
+    padding: var(--author-padding-top,20px) 15px var(--author-padding-bottom,20px);
+}
+
+.authorImage,
+.authorImage .authorImg {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 15px; /* مسافة بين الصورة والاسم */
+}
+
+.authorImage img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--author-img-border);
+    display: block;
+}
+
+.author-name {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--author-name-color);
+    text-align: center;
+}
+
+.author-desc {
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: right;
+    width: 100%;
+    margin-top: 15px;    /* مسافة فوق الديسكربشن */
+    margin-bottom: 15px; /* مسافة تحت الديسكربشن */
+    border-right: var(--author-desc-border);
+    padding-right: 15px;
+    color: var(--author-desc-color);
+}
+
+.author-desc a {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--author-link-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.author-desc a:hover {
+    color: var(--author-link-hover);
+    text-decoration: underline;
+}
+ .author-posts {
+  background: var(--CardBg) !important;
+}
+
+
+
+
+div#tocDiv {
+    user-select: none;
+    font-family: sans-serif;
+    border: 1px solid var(--toc-border);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--toc-bg);
+    margin-bottom: 20px;
+}
+.topcs7v {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0 !important;
+}
+
+.toctitle {
+    align-items: center;
+    display: flex;
+}
+.toctitle {
+    cursor: pointer;
+    position: relative;
+    height: 55px;
+    font-size: 16px;
+    color: var(--toc-title-color);
+    justify-content: flex-start;
+    padding: 0 15px;
+    width: 100%;
+    background-color: var(--toc-title-bg);
+    font-weight: 700;
+    border-bottom: 1px solid var(--toc-title-border);
+    box-sizing: border-box;
+}
+.toctitle::after {
+    content: &quot;&#9660;&quot;;
+    font-size: 16px;
+    margin-left: auto;
+    transition: transform 0.3s;
+}
+.topcs7v.open .toctitle::after {
+    transform: rotate(-180deg);
+}
+.closed .toctitle,
+.toctitle:hover {
+    background: var(--toc-hover-bg);
+}
+#tocList {
+    padding: 10px 20px;
+    display: none;
+    background-color: var(--toc-box-bg);
+    margin: 0;
+    border-top: none;
+    list-style: none;
+}
+#tocList li a {
+    text-decoration: none;
+    color: var(--toc-link-color);
+    font-size: 15px;
+    transition: color 0.2s;
+}
+#tocList li a:hover {
+    color: var(--toc-link-hover);
+    text-decoration: underline;
+}
+
+.content-wrapper ol:not(.toc-box ol) {
+    color: var(--ol-text-color);
+    padding-right: 40px;
+}
+.content-wrapper ol:not(.toc-box ol) li {
+    counter-increment: li;
+    margin-bottom: 15px;
+    box-shadow: var(--ol-shadow);
+    color: var(--ol-text-color);
+    padding: 0 10px 8px;
+}
+.content-wrapper ol:not(.toc-box ol) li::before {
+    content: counter(li);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--ol-num-bg);
+    color: var(--ol-num-color);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 17px;
+}
+
+[dir=&quot;rtl&quot;] .content-wrapper ol:not(.toc-box ol) li::before {
+    margin-left: 15px;
+    margin-right: 0;
+    right: 10px;
+}
+[dir=&quot;ltr&quot;] .content-wrapper ol:not(.toc-box ol) li::before {
+    margin-left: 0;
+    margin-right: 15px;
+    right: 10px;
+}
+
+.content-wrapper ul:not(.toc-box ul) {
+    padding-left: 40px;
+    color: var(--ul-text-color);
+}
+.content-wrapper ul:not(.toc-box ul) li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    box-shadow: var(--ul-shadow);
+    color: var(--ul-text-color);
+    padding: 8px 15px;
+}
+.content-wrapper ul:not(.toc-box ul) li::before {
+    content: &quot;&quot;;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--ul-bullet-bg);
+    color: var(--ul-bullet-color);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 14px;
+    margin-inline-end: 15px;
+}
+
+
+[dir=&quot;rtl&quot;] .content-wrapper ul:not(.toc-box ul) {
+    padding-left: 0;
+    padding-right: 40px;
+}
+.content-wrapper blockquote {
+    width: 90%;
+    margin: 20px auto;
+    padding: 30px 30px 15px;
+    line-height: 2;
+    color: var(--blockquote-text);
+    border-radius: 5px;
+    background: var(--blockquote-bg);
+    position: relative;
+}
+.content-wrapper blockquote::before {
+    content: &quot;\201C&quot;;
+    font-size: 50px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: var(--blockquote-text);
+    font-family: serif;
+    line-height: 1;
+}
+[dir=&quot;rtl&quot;] .content-wrapper blockquote::before {
+    left: auto;
+    right: 10px;
+}
+
+.toc-box ul li ul li,
+.toc-box ol li,
+.toc-box ul li {
+    list-style: none;
+    font-size: 17px;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+/*           */
+@media screen and (max-width: 920px) {
+    .content-wrapper h2:not(.post-title):not(.areacode),
+    .content-wrapper h3:not(.post-title):not(.areacode),
+    .content-wrapper h4:not(.post-title):not(.areacode) {
+        padding: 8px 15px;
+        font-size: 1.5rem;
+    }
+    .content-wrapper h1:not(.post-title):not(.areacode) {
+        font-size: 1.8rem;
+    }
+    /* .content-wrapper h2:not(.post-title):not(.areacode) {   font-size: 1.5rem; } */
+    [dir=&quot;rtl&quot;] .article-post ul:not(.toc-box ul),
+    .content-wrapper ol:not(.toc-box ol) {
+        padding-left: 0;
+        padding-right: 20px;
+    }
+    [dir=&quot;ltr&quot;] .article-post ul:not(.toc-box ul),
+    .content-wrapper ol:not(.toc-box ol) {
+        padding-left: 20px;
+        padding-right: 0;
+    }
+    .authorInfo {
+        width: calc(100% - 55px);
+    }
+    .content-wrapper ul:not(.toc-box ul) li {
+        padding: 0 0px 8px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .content-wrapper h2:not(.post-title):not(.areacode),
+    .content-wrapper h3:not(.post-title):not(.areacode),
+    .content-wrapper h4:not(.post-title):not(.areacode) {
+        padding: 6px 12px;
+        font-size: 1.4rem;
+    }
+    .content-wrapper h1:not(.post-title):not(.areacode) {
+        font-size: 1.7rem;
+    }
+    /* .content-wrapper h2:not(.post-title) {   font-size: 1.4rem; } */
+    [dir=&quot;rtl&quot;] .content-wrapper ul:not(.toc-box ul),
+    .content-wrapper ol:not(.toc-box ol) {
+        padding-left: 0;
+        padding-right: 15px;
+    }
+    [dir=&quot;ltr&quot;] .article-post ul:not(.toc-box ul),
+    .content-wrapper ol:not(.toc-box ol) {
+        padding-left: 15px;
+        padding-right: 0;
+    }
+    .authorInfo {
+        width: calc(100% - 45px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content-wrapper h1:not(.post-title):not(.areacode) {
+        font-size: 1.5rem;
+    }
+    .content-wrapper h2:not(.post-title):not(.areacode),
+    .content-wrapper h3:not(.post-title):not(.areacode),
+    .content-wrapper h4:not(.post-title):not(.areacode) {
+        padding: 5px 10px;
+        font-size: 1.2rem;
+    }
+    /* .content-wrapper h2:not(.post-title) {   font-size: 1.4rem; } */
+    [dir=&quot;rtl&quot;] .content-wrapper ul:not(.toc-box ul),
+    .content-wrapper ol:not(.toc-box ol) {
+        padding-left: 0;
+        padding-right: 5px;
+    }
+    [dir=&quot;ltr&quot;] .content-wrapper ul:not(.toc-box ul),
+    .content-wrapper ol:not(.toc-box ol) {
+        padding-left: 5px;
+        padding-right: 0;
+    }
+    .content-wrapper ol:not(.toc-box ol) li,
+    .content-wrapper ul:not(.toc-box ul) li {
+        font-size: 15px;
+    }
+    .bobxed,
+    .commentsection,
+    .pSh,
+    .post-tags,
+    .shareButton,
+    .RelatedPosts,
+    .author-posts,
+    .article-post,
+    .page-navigation {
+        padding: 15px !important;
+    }
+    .authorInfo {
+        width: calc(100% - 20px);
+    }
+    .e3dadat {
+        width: 270px;
+    }
+    .toctitle {
+        height: 45px;
+        font-size: 15px;
+    }
+    .Sp-posts6 .Posts-byCatgory,
+    .PopularPosts .Noimg {
+        margin-right: 5px;
+    }
+    .content-wrapper ul:not(.toc-box ul) li::before {
+        width: 18px;
+        height: 18px;
+    }
+    .content-wrapper ol:not(.toc-box ol) li::before {
+        width: 27px;
+        height: 27px;
+    }
+    .content-wrapper ul:not(.toc-box ul) li,
+    .content-wrapper ol:not(.toc-box ol) li {
+        padding: 0 0px 9px;
+    }
+    .content-wrapper blockquote {
+        width: 90%;
+        padding: 25px 25px 15px;
+    }
+    .content-wrapper blockquote::before {
+        font-size: 45px;
+        top: 5px;
+    }
+}
+
+/* new */
+
+@media screen and (max-width: 420px) {
+    #darkModeToggle svg {
+        fill: var(--HeaderBtnCo) !important;
+        padding-left: 7px !important;
+        scale: 1.2;
+    }
+    svg.line1,
+    svg .line1 {
+        padding-right: 10px !important;
+        scale: 1.6;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .content-wrapper h1:not(.post-title):not(.areacode) {
+        font-size: 1.3rem;
+    }
+    .content-wrapper h2:not(.post-title):not(.areacode),
+    .content-wrapper h3:not(.post-title):not(.areacode),
+    .content-wrapper h4:not(.post-title):not(.areacode) {
+        padding: 3px 5px;
+        font-size: 1.0rem;
+    }
+    /* .article-post h2:not(.post-title):not(.areacode) {   font-size: 1.0rem; } */
+    [dir=&quot;rtl&quot;] .article-post ul:not(.toc-box ul),
+    .content-wrapper ol:not(.toc-box ol) {
+        padding-left: 0;
+        padding-right: 5px;
+    }
+    [dir=&quot;ltr&quot;] .article-post ul:not(.toc-box ul),
+    .content-wrapper ol:not(.toc-box ol) {
+        padding-left: 5px;
+        padding-right: 0;
+    }
+    .content-wrapper ol:not(.toc-box ol) li,
+    .content-wrapper ul:not(.toc-box ul) li {
+        font-size: 15px;
+        margin-bottom: 0px;
+    }
+    .bobxed,
+    .commentsection,
+    .pSh,
+    .post-tags,
+    .shareButton,
+    .RelatedPosts,
+    .author-posts,
+    .article-post,
+    .page-navigation {
+        padding: 10px !important;
+    }
+    .authorInfo {
+        width: calc(100% - 5px);
+    }
+    .e3dadat {
+        width: 270px;
+    }
+    .toctitle {
+        height: 35px;
+        font-size: 13px;
+    }
+    .Sp-posts6 .Posts-byCatgory,
+    .PopularPosts .Noimg {
+        margin-right: 0px;
+    }
+    .content-wrapper ul:not(.toc-box ul) li::before {
+        width: 12px;
+        height: 12px;
+    }
+    .content-wrapper ol:not(.toc-box ol) li::before {
+        width: 20px;
+        height: 20px;
+    }
+    .content-wrapper ul:not(.toc-box ul) li,
+    .content-wrapper ol:not(.toc-box ol) li {
+        padding: 0 0px 8px;
+    }
+    .content-wrapper blockquote {
+        width: 95%;
+        padding: 20px 20px 10px;
+    }
+    .content-wrapper blockquote::before {
+        font-size: 40px;
+        top: 5px;
+    }
+    .site .widget {
+        padding: 15px;
+    }
+    .authorname {
+        margin-left: 0px;
+    }
+	
+	}
+    @media screen and (max-width: 280px) {
+        .pShc&gt;* {
+            padding: 7px 6px 7px;
+        }
+        .site .widget {
+            padding: 10px;
+        }
+    }
+	
+/*   article-post style h1 h2... */
+
+
+
+
+
+/*<![CDATA[*/ 
+.areacode:before{content:'</>';position:absolute;left:0;top:0;background:inherit;color:var(--TextColor);font-size:12px;font-family:monospace;padding:5px 15px;z-index:2;line-height:30px}
+.areacode{position:relative;display:flex;overflow:hidden;clear:both;width:100%;padding:40px 0 0;background:#f6f6f6;margin:15px 0}
+.areacode:after {
+  content: 'Copy';
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: inherit;
+  color: var(--TextColor);
+  font-size: 14px;
+  padding: 5px 15px;
+  z-index: 2;
+  line-height: 30px;
+}
+.areacode{background: var(--LightColor);}
+.areacode textarea.code{background: var(--LightColor);}
+.areacode{background: #403d3d;}
+.dark-mode .areacode textarea.code{background: var(--LightColor);}
+.dark-mode .areacode{background: var(--LightColor);}
+
+
+/* ✅ نفس الاستايل يتطبق على pre, code
+   بشرط مش جوا .areacode أو code تاني */
+pre:not(.areacode pre):not(code pre),
+code:not(.areacode code):not(pre code) {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  clear: both;
+  width: 100%;
+ /* padding: 40px 0 0;*/
+  background: #403d3d;
+  margin: 15px 0;
+}
+
+/* العلامة قبل */
+pre:not(.areacode pre):not(code pre)::before,
+code:not(.areacode code):not(pre code)::before {
+  content: '</>';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: inherit;
+  color: var(--TextColor);
+  font-size: 12px;
+  font-family: monospace;
+  padding: 5px 15px;
+  z-index: 2;
+  line-height: 30px;
+}
+
+/* زر Copy */
+pre:not(.areacode pre):not(code pre)::after,
+code:not(.areacode code):not(pre code)::after {
+  content: 'Copy';
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: inherit;
+  color: var(--TextColor);
+  font-size: 14px;
+  padding: 5px 15px;
+  z-index: 2;
+  line-height: 30px;
+}
+
+
+/*]]>*/    
+	 
+
+
+	 .posttopbox , .content-wrapper, .RelatedPosts {
+  background: var(--CardBg) !important;
+  border-bottom: 1px solid var(--BorderSoft);
+   clear: both;
+   padding: 20px !important;
+  display: block; 
+  overflow: hidden;
+}
+		
+/*  post  */		
+		
+		
+		
+		
+
+/*  post or page */
+
+	<!-- comments css2-1 -->
+	.comments .avatar-image-container img {
+  max-width: 36px;
+  border-radius: 20px;
+}
+
+/* === الحاوية الرئيسية للتعليقات === */
+#comments-container {
+    width: 100%; /* ياخد العرض كله */
+   /* margin: 20px auto;*/
+    padding: 15px;
+}
+
+/* === كل تعليق كارت === */
+.comment {
+    background: var(--CardBg);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.2s ease;
+    color: var(--PostText);
+}
+
+.comment:hover {
+    transform: translateY(-2px);
+}
+
+/* === الهيدر والاسم والتاريخ === */
+.comment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px !important;
+    /*! margin-top: 10px !important; */
+}
+
+.comment-header cite.user {
+    font-weight: bold;
+    margin-right: 10px;
+    color: var(--PostTitle);
+}
+
+.comment-header .datetime a {
+    font-size: 0.85em;
+    color: var(--TextColor);
+    text-decoration: none;
+}
+
+/* === الصورة الشخصية === */
+.avatar-image-container img {
+    width: 50px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 12px;
+    border: 2px solid var(--BorderSoft3);
+}
+
+/* === نص التعليق === */
+.comment-content {
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--PostText);
+}
+
+/* === أزرار الرد والحذف === */
+.comment-actions a {
+    color: var(--PostLink);
+    font-size: 0.9em;
+    text-decoration: none;
+    margin-right: 12px;
+    font-weight: 500;
+}
+
+.comment-actions a:hover {
+    color: var(--HoverEffect);
+}
+
+/* === الردود المتفرعة === */
+.comment-replies {
+    margin-left: 50px;
+    margin-top: 15px;
+}
+
+/* === تحميل المزيد === */
+.loadmore a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 15px 0;
+    padding: 12px;
+    background: var(--AccentColor);
+    color: var(--GradientColor);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.loadmore a:hover {
+    background: var(--HoverEffect);
+}
+
+/* === زر إرسال تعليق === */
+#comment-post-message {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 15px 0;
+    padding: 12px;
+    background: var(--AccentColor);
+    color: var(--BtnTitleColor);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    /*! margin-bottom: 30px !important; */
+}
+
+#comment-post-message:hover {
+    background: var(--HoverEffect);
+}
+
+/* === iframe التعليقات === */
+iframe#comment-editor {
+    width: 100%;
+    background: var(--CardBg);
+    border-radius: 12px;
+    margin-top: 15px;
+    border: 2px solid var(--BorderSoft2);
+}
+
+/* === عنوان التعليقات === */
+.comments-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--TitleColor);
+    border-bottom: var(--border-bottom);
+    padding-bottom: 15px;
+}
+
+.comment-actions ,.secondary-text{
+    padding: 0px;
+}
+
+
+
+.comments .thread-toggle {
+
+  padding-bottom: 15px;
+}
+
+/*
+.comments .comments-content .datetime{
+      display: none !important;
+}
+*/
+.comment-header {
+  display: flex;
+  flex-direction: column; /* يخلي العناصر فوق بعض */
+  align-items: flex-start; /* يظبطهم شمال */
+}
+
+.comment-header .datetime {
+  font-size: 0.85em; /* أصغر من النص الأساسي */
+  color: #666;       /* لون أفتح عشان يبان انه تاريخ */
+  margin-top: 0px;
+}
+
+
+
+
+
+.comments .avatar-image-container {
+  float: right;
+  max-height: 50px;
+  overflow: hidden;
+  width: 50px;
+}
+.comments .comments-content .comment {
+  margin-bottom: 10px;
+}
+
+#top-continue {
+  display: inline-block;
+  margin: 20px auto;
+  padding: 4px 15px;
+  background: var(--AccentColor);
+  color: var(--BtnTitleColor);
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+/* يخلي الزر فعلا&#1611; في النص */
+#top-continue {
+  display: block;
+  width: fit-content;
+}
+
+#top-continue:hover {
+  background: var(--HoverEffect);
+  transform: translateY(-2px);
+}
+
+#top-continue {
+  display: none
+}
+
+/* comment style fix after bloger css remove */
+.comments .thread-chrome.thread-collapsed {
+  display: none;
+}
+
+span.blog-admin, span.pid-2081181316 {
+  display: inline;
+}
+.comments .hidden {
+  display: none;
+}
+
+
+.comments .avatar-image-container {
+  float: right;
+  max-height: 50px;
+  overflow: hidden;
+  width: 50px;
+}
+
+.comments .comments-content .comment {
+  margin-bottom: 10px;
+}
+.comments .comments-content .comment {
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+}
+.comments .avatar-image-container img {
+  max-width: 36px;
+}
+.avatar-image-container img {
+  width: 50px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 12px;
+  border: 2px solid var(--BorderSoft3);
+}
+.comments .comment-block {
+  margin-right: 48px;
+  position: relative;
+}
+.comments .comments-content .user {
+  font-style: normal;
+  font-weight: bold;
+}
+.comment-header cite.user {
+  font-weight: bold;
+  margin-right: 10px;
+  color: var(--PostTitle);
+}
+.comments .comments-content .datetime {
+  margin-right: 6px;
+}
+.comment-header .datetime {
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 0px;
+}
+
+/* hide ol numper */
+
+/* إخفاء أرقام القوائم في تعليقات بلوجر */
+#comment-holder ol {
+  list-style: none !important;
+  counter-reset: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#comment-holder ol li {
+  list-style-type: none !important;
+  counter-increment: none !important;
+  position: relative !important;
+}
+
+#comment-holder ol li::marker {
+  content: none !important;
+}
+
+#comment-holder ol li::before {
+  content: none !important;
+}
+
+/* بعض القوالب تضيف الترقيم داخل عناصر  */
+#comment-holder .thread-chrome &gt; div::before,
+#comment-holder .comment-thread &gt; div::before {
+  content: none !important;
+  display: none !important;
+}
+
+
+/* fix sub reply */
+.comments .thread-toggle {
+  padding-bottom: 15px;
+  padding-right: 30px;
+}
+.comments .thread-toggle {
+  display: inline-block;
+}
+.comments .thread-toggle {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.comments .thread-toggle .thread-arrow {
+  display: inline-block;
+  height: 6px;
+  margin: .3em;
+  overflow: visible;
+  padding-left: 4px;
+  width: 7px;
+}
+
+
+/* السهم الافتراضي (expanded = مفتوح) */
+.comments .thread-toggle.thread-expanded .thread-arrow::after {
+  content: &quot;\25B2&quot;; /* سهم لفوق */
+  font-size: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+/* عند الطي (collapsed = مغلق) */
+.comments .thread-toggle.thread-collapsed .thread-arrow::after {
+  content: &quot;\25BC&quot;; /* سهم تحت */
+  font-size: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+.comments .thread-toggle {
+  cursor: pointer;
+}
+.item-control,
+.comment-actions,
+.continue {
+  cursor: pointer;
+}
+
+/* hide remove comment*/
+.item-control{
+  display: none !important;
+}
+
+.highlight-comment {
+  /*! background: #ffffcc; */  /* لون تمييز خفيف */
+  border: 2px solid #f1c40f;
+  transition: background 0.3s;
+}
+.highlight-comment .comment-actions .item-control {
+  display: inline-block !important;
+}
+
+
+.comments .comments-content .comment-thread ol {
+  list-style-type: none;
+  padding: 0;
+  text-align: right;
+  padding-right: 30px;
+}
+
+#comment-holder ol li ol {
+  padding-right: 30px !important;; 
+}
+
+
+/* comment style fix after bloger css remove end  */
+
+/*  post or page */
+				
+		
+		
+/* fbcomment*/
+.comments-tabs {
+  margin-top: 20px;
+  font-family: inherit;
+}
+
+.comments-tabs .tabs {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 3px solid var(--BorderSoft3);
+  justify-content: center;
+}
+
+.comments-tabs .tabs li {
+  padding: 10px 20px;
+  cursor: pointer;
+ /* background: var(--BgBody);*/
+  color: var(--GradientColor);
+  border: 1px solid var(--BorderSoft3);
+  border-bottom: none;
+  margin: 0 5px;
+  border-radius: 12px 12px 0 0;
+  transition: background .3s ease;
+  font-size: 15px;
+}
+
+.comments-tabs .tabs li:hover {
+  background: var(--HoverEffect);
+}
+
+.comments-tabs .tabs li.active {
+/*  background: var(--AccentColor);*/
+  color: var(--IconColor);
+  font-weight: bold;
+}
+
+.tab-content {
+  margin-top: 0;
+  padding: 15px;
+  border: 1px solid var(--BorderSoft3);
+  border-radius: 0 0 12px 12px;
+/*  background: var(--SubTextColor);*/
+  box-shadow: var(--box-shadow);
+}
+
+
+/*  tabs svg   */
+.tabs svg {
+  width: 24px;
+  height: 24px;
+   fill: #fff; /* لو عايز الأيقونة لونها أبيض */
+ 
+}
+.shbtn.blogger {
+  background-color: #ea9d0a;
+  background-image: none;
+  /*! fill: white; */
+}
+
+.tabs li {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* مسافة بين النص والأيقونة */
+}
+.tabs .shbtn {
+  display: flex;               /* علشان السنترة */
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+
+/* fbpage and buttons*/
+#facebook-comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* مسافة بين العناصر */
+  text-align: center;
+}
+
+/* أزرار لايك + شير */
+#facebook-comments .fb-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+/* صندوق الصفحة */
+#facebook-comments .fb-page {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* fbcomment*/		
